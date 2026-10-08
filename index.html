@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f7f1" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html" aria-label="Pocket Ledger home">
+          <span class="brand-mark" aria-hidden="true">p</span>
+          <span>pocket ledger</span>
+        </a>
+        <p class="topbar-note">A little more clarity, every day.</p>
+      </header>
+
+      <main>
+        <section class="page-heading" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">YOUR PERSONAL LEDGER</p>
+            <h1 id="page-title">Expenses</h1>
+            <p class="page-description">Keep track of where your money goes.</p>
+          </div>
+          <time class="today-chip" id="today"></time>
+        </section>
+
+        <section class="overview" aria-label="Expense summary">
+          <div>
+            <p class="section-label">TOTAL SPENT</p>
+            <p class="total-amount" id="total-amount" aria-live="polite">$0.00</p>
+          </div>
+          <div class="overview-divider" aria-hidden="true"></div>
+          <div class="entry-count-wrap">
+            <p class="section-label">ENTRIES</p>
+            <p class="entry-count" id="entry-count" aria-live="polite">0</p>
+          </div>
+          <span class="overview-orbit" aria-hidden="true"></span>
+        </section>
+
+        <section class="add-section" aria-labelledby="add-title">
+          <div class="section-heading">
+            <span class="section-index" aria-hidden="true">01</span>
+            <h2 id="add-title">Add an expense</h2>
+          </div>
+          <form id="expense-form" class="expense-form">
+            <label class="field field-name">
+              <span>Expense name</span>
+              <input
+                id="expense-name"
+                name="name"
+                type="text"
+                placeholder="e.g. Weekly groceries"
+                maxlength="80"
+                autocomplete="off"
+                required
+              />
+            </label>
+            <label class="field field-amount">
+              <span>Amount <span class="currency-hint">USD</span></span>
+              <span class="amount-input-wrap">
+                <span aria-hidden="true">$</span>
+                <input
+                  id="expense-amount"
+                  name="amount"
+                  type="number"
+                  placeholder="0.00"
+                  min="0.01"
+                  step="0.01"
+                  inputmode="decimal"
+                  required
+                />
+              </span>
+            </label>
+            <button class="add-button" type="submit">
+              <span class="plus-icon" aria-hidden="true">+</span>
+              Add expense
+            </button>
+          </form>
+        </section>
+
+        <section class="list-section" aria-labelledby="list-title">
+          <div class="list-heading">
+            <div class="section-heading">
+              <span class="section-index" aria-hidden="true">02</span>
+              <h2 id="list-title">Recent expenses</h2>
+            </div>
+            <span class="list-currency">AMOUNT <span>· USD</span></span>
+          </div>
+          <ul class="expense-list" id="expense-list" aria-live="polite"></ul>
+          <div class="empty-state" id="empty-state">
+            <span class="empty-mark" aria-hidden="true">+</span>
+            <p>No expenses yet</p>
+            <span>Your entries will show up here.</span>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Small steps add up.</span>
+        <span>POCKET LEDGER <span aria-hidden="true">/</span> 01</span>
+      </footer>
+    </div>
+  </body>
+</html>
